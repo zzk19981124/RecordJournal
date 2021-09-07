@@ -2,6 +2,7 @@ package com.example.recordjournal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
@@ -124,6 +125,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.item_mainlv_top_iv_hide://明文、密文转换
                 toggleShow();
+                break;
+            case R.id.main_btn_edit: // 记一笔
+                Intent intent = new Intent(this,RecordActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
