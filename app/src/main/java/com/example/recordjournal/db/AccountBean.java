@@ -15,6 +15,8 @@ public class AccountBean {
     int day;
     int kind;   //类型  收入---1   支出---0
 
+    public AccountBean(){
+    }
 
     public AccountBean(int id, String typename, int sImageId, String beizhu, float money, String time, int year, int month, int day, int kind) {
         this.id = id;
