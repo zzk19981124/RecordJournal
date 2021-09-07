@@ -16,12 +16,7 @@ import com.example.recordjournal.R;
  * @desc 作用描述
  * @date 2021/9/7
  */
-public class BaseRecordFragment extends Fragment implements View.OnClickListener {
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+public class BaseRecordFragment extends Fragment{
 
     @Nullable
     @Override
@@ -31,8 +26,5 @@ public class BaseRecordFragment extends Fragment implements View.OnClickListener
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
 
-    }
 }
