@@ -2,6 +2,7 @@ package com.example.recordjournal.utils;
 
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
@@ -42,7 +43,26 @@ public class KeyboardUtils {
         @Override
         public void onKey(int primaryCode, int[] keyCodes) {
             //~~~
-
+            Editable editable = mEditText.getText();
+            int start = mEditText.getSelectionStart();
+            switch (primaryCode){
+                case Keyboard.KEYCODE_DELETE://点击了删除键
+                    if (editable!=null&&editable.length()>0){
+                        if (start>0){
+                            editable.delete(start-1,start);
+                        }
+                    }
+                    break;
+                case Keyboard.KEYCODE_CANCEL://清零
+                    editable.clear();
+                    break;
+                case Keyboard.KEYCODE_DONE://运算
+                    onEnsureListener.onEnsure();
+                    break;
+                default://其他数字直接插入
+                    editable.insert(start,Character.toString((char) primaryCode));
+                    break;
+            }
         }
 
         @Override
